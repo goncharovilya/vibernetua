@@ -11104,7 +11104,8 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 
 @media only screen and (max-width:900px) and (max-width:620px) {
     .container__map .wrap__map-line1 {
-        max-width: 500px
+        max-width: 500px;
+        overflow: hidden;
     }
 }
 
@@ -11398,46 +11399,94 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
     width: 100%;
 }
 
+@media only screen and (max-width:1110px) {
+    .wrap__svg-map {
+        margin: 0 -70px;
+        transform: scale(0.7);
+    }
+}
+
+@media only screen and  (max-width:900px) {
+    .wrap__svg-map {
+        transform: scale(0.8);
+        margin: 0 auto;
+    }
+}
+
+@media only screen and  (max-width:650px) {
+    .wrap__svg-map {
+        transform: scale(0.6);
+        width: 110%;
+    }
+}
+
+@media only screen and  (max-width:510px) {
+    .wrap__svg-map {
+        transform: scale(0.5) translate(-120px, 0);;
+        width: 150%;
+        margin: 0 0 0 -30px;
+    }
+}
+
+@media only screen and  (max-width:380px) {
+    .wrap__svg-map {
+        transform: scale(0.5) translate(-120px, 0);;
+        width: 200%;
+        margin: 0 0 0 -80px;
+    }
+}
+
 .svg-map {
     position: absolute;
     z-index: 4;
     pointer-events: none;
+    width: 100%;
+    height: 100%;
 }
 
 .map-city {
     position: absolute;
-    opacity: 0.5;
+
     transition: all 0.4s ease 0s;
 }
 
- .map-city path {
-    z-index: 5;
-} 
+.map-city--passive path {
+    opacity: 0.5;
+}
 
- .map-city:hover {
+.map-city--passive>.kyiv-path,
+.map-city--passive>.sevastopol-path {
+    opacity: 0.25;
+}
+
+
+.map-city path {
+    z-index: 5;
+    transition: all 0.2s ease 0s;
+}
+
+.map-city:hover {
     transform: scale(3);
-     opacity: 1; 
+    opacity: 1;
     z-index: 4;
     pointer-events: none;
-} 
- 
-.map-city:hover .map-city>.map-path {
-    fill: #fff;
-} 
+}
+
+.map-city.sevastopol:hover {
+    transform: scale(10)
+}
 
 
-
-
-
-
- .map-city:hover path {
-    pointer-events: fill;
+.map-city:hover path {
+    pointer-events: visibleFill;
     z-index: 2;
-    
-} 
+
+}
+
+
 
 .marker-svg,
-.text-svg  {
+.text-svg {
     z-index: 5;
 }
 
@@ -11479,7 +11528,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 
 .rivne {
     left: 88px;
-    top: 20px; 
+    top: 20px;
 }
 
 .khmelnitskiy {
@@ -11497,12 +11546,12 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
     top: 118px;
 }
 
-.kyiv {
+/* .kyiv {
     left: 241px;
     top: 85px;
     z-index: 3;
     opacity: 0;
-}
+} */
 
 .kyiv-obl {
     left: 212px;
@@ -11559,7 +11608,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
     top: 221px;
 }
 
-.kropivnitskiy { 
+.kropivnitskiy {
     left: 227px;
     top: 147px;
 }
@@ -11596,13 +11645,9 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
     }
 }
 
-@media only screen and (max-width:900px) and (max-width:470px) and (max-width:400px) {
-    .wrap__svg-map {
-        min-height: 300px
-    }
-}
 
-@media only screen and (max-width:900px) and (max-width:470px) and (max-width:400px) and (max-width:380px) {
+
+/* @media only screen and (max-width:900px) and (max-width:470px) and (max-width:400px) and (max-width:380px) {
     .wrap__svg-map {
         min-height: 250px
     }
@@ -11618,7 +11663,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
     .wrap__svg-map {
         min-height: 200px
     }
-}
+} */
 
 @media only screen and (max-width:1050px) {
     .wrap__svg-map svg-map {
