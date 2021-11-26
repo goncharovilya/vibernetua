@@ -52,3 +52,4 @@ $('.map-city').hover(function () {
   $(this).siblings().removeClass('map-city--passive');
 });
 
+
